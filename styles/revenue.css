@@ -1,0 +1,26 @@
+#lineAndBarChart .bar {
+  fill: royalblue;
+}
+#lineAndBarChart .bar.green {
+  fill: green;
+}
+
+#lineAndBarChart .bar.red {
+  fill: red;
+}
+
+#lineAndBarChart .bar:hover {
+  fill: orange;
+}
+#lineAndBarChart .axis--x path {
+  display: none;
+}
+#lineAndBarChart .line {
+  fill: none;
+  stroke: royalblue;
+  stroke-width: 3;
+}
+#lineAndBarChart .dot {
+  fill: royalblue;
+  stroke: royalblue;
+}
