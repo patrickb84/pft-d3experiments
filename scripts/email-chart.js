@@ -1,65 +1,78 @@
-const data = {
+// ! COMMON
+const margin = { top: -5, right: 25, bottom: 100, left: 115 };
+const getElDimensions = el => ({
+  width: () => el.offsetWidth,
+  height: () => el.offsetHeight,
+  innerWidth: () => el.offsetWidth - margin.left - margin.right,
+  innerHeight: () => el.offsetHeight - margin.top - margin.bottom,
+  outerWidth: () => el.offsetWidth + margin.left + margin.right,
+  outerHeight: () => el.offsetHeight + margin.top + margin.bottom
+})
+const padding_between_bars = 0.5
+
+// ! MOCK DATA
+const EMAIL_DATA = {
   total: 5030,
   opened: 4453,
   clicked: 3243,
   undelivered: 123
 };
 
-const progressChart = () => {
-  // # set dimensions
-  const margin = { top: 10, right: 30, bottom: 20, left: 50 },
-    width = 500 - margin.left - margin.right,
-    height = 250 - margin.top - margin.bottom;
+// ! Chart function
+const progressChart = (selector = "#email-chart", data = EMAIL_DATA, yDomain = ['Opened', 'Clicked', 'Undelivered']) => {
+  // # get element
+  const el = document.querySelector(selector)
+  el.classList.add('d3', 'stacked_bar_graph')
+  const dimensions = getElDimensions(el)
 
-  // # append the svg obj
-  // creates a centered header above the chart that displays the total number of emails sent
+  // # append "Total" text
   const header = d3
-    .select('#progressChart')
+    .select(selector)
     .append('h3')
     .attr('class', 'chart-header')
     .text(`${data.total / 1000}k`);
+  const elHeader = document.querySelector(`${selector} .chart-header`);
 
+  // # append svg
   const svg = d3
-    .select('#progressChart')
+    .select(el)
     .append('svg')
-    .attr('width', width + margin.left + margin.right)
-    .attr('height', height + margin.top + margin.bottom)
+    .attr('width', dimensions.outerWidth())
+    .attr('height', dimensions.outerHeight() - elHeader.offsetHeight - 40)
     .append('g')
-    .attr('transform', `translate(${margin.left + 60},${margin.top})`);
-
-  const keys = ['Opened', 'Clicked', 'Undelivered'];
+    .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
   // # Add X axis
   const x = d3
     .scaleLinear()
     .domain([0, data.total])
-    .rangeRound([0, width - margin.left - margin.right]);
+    .rangeRound([0, dimensions.innerWidth()]);
 
   // # Add Y axis
   const y = d3
     .scaleBand()
-    .domain(keys)
-    .rangeRound([0, height - margin.top - margin.bottom])
-    .padding(0.4);
+    .domain(yDomain)
+    .rangeRound([0, dimensions.innerHeight()])
+    .padding(padding_between_bars);
 
-  // # Add Y axis label
-  //   svg.append('g').call(d3.axisLeft(y));
-
-  const bars = svg.selectAll('.bar').data(keys).enter().append('g');
+  const bars = svg.selectAll('.bar').data(yDomain).enter().append('g');
 
   bars
     .append('text')
     .attr('class', 'bar-text')
-    .attr('x', d => x(d) - 10)
+    // .attr('x', d => x(d) - 10)
     .attr('y', d => y(d) + y.bandwidth() / 2)
     .html(d => {
       let num = null;
-      if (d === 'Opened') {
-        num = data.opened;
-      } else if (d === 'Clicked') {
-        num = data.clicked;
-      } else {
-        num = data.undelivered;
+      switch (d) {
+        case 'Opened':
+          num = data.opened;
+          break;
+        case 'Clicked':
+          num = data.clicked;
+          break;
+        default:
+          num = data.undelivered;
       }
       return `<tspan style="font-weight:bold" x="-90" dy="-2"> ${num} </tspan><tspan x="-90" dy="1.2em">${d}</tspan>`;
     })
@@ -71,8 +84,8 @@ const progressChart = () => {
     .attr('x', 0)
     .attr('height', y.bandwidth())
     .attr('y', d => y(d))
-    .attr('width', x.domain()[1])
-    .attr('fill', 'lightgrey');
+    .attr('width', d => x(data.total))
+    .attr('class', 'fill-light');
 
   bars
     .append('rect')
@@ -81,49 +94,25 @@ const progressChart = () => {
     .attr('height', y.bandwidth())
     .attr('y', d => y(d))
     .attr('width', d => {
-      if (d === 'Opened') {
-        return x(data.opened);
-      } else if (d === 'Clicked') {
-        return x(data.clicked);
-      } else {
-        return x(data.undelivered);
+      switch (d) {
+        case 'Opened':
+          return x(data.opened);
+        case 'Clicked':
+          return x(data.clicked);
+        default:
+          return x(data.undelivered);
       }
     })
     .attr('fill', d => {
-      if (d === 'Opened') {
-        return 'purple';
-      } else if (d === 'Clicked') {
-        return 'blue';
-      } else {
-        return 'goldenrod';
+      switch (d) {
+        case 'Opened':
+          return 'purple';
+        case 'Clicked':
+          return 'blue';
+        default:
+          return 'goldenrod';
       }
     });
-
-  //   bars
-  //     .append('text')
-  //     .attr('class', 'bar-text')
-  //     .attr('x', d => {
-  //       if (d === 'Opened') {
-  //         return xAxis(data.openedOutOfSent);
-  //       } else if (d === 'Clicked') {
-  //         return xAxis(data.clickedOutOfSent);
-  //       } else {
-  //         return xAxis(data.bouncedOutOfSent);
-  //       }
-  //     })
-  //     .attr('y', d => yAxis(d) + yAxis.bandwidth() / 2)
-  //     .attr('dx', -3)
-  //     .attr('dy', '.35em')
-  //     .attr('text-anchor', 'end')
-  //     .text(d => {
-  //       if (d === 'Opened') {
-  //         return data.openedOutOfSent;
-  //       } else if (d === 'Clicked') {
-  //         return data.clickedOutOfSent;
-  //       } else {
-  //         return data.bouncedOutOfSent;
-  //       }
-  //     });
 };
 
 export default progressChart;

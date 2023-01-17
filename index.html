@@ -6,14 +6,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D3.js</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    <!-- <link rel="stylesheet" href="styles/01.css"> -->
-    <!-- <link rel="stylesheet" href="styles/02.css"> -->
-    <!-- <link rel="stylesheet" href="styles/03.css"> -->
-    <link rel="stylesheet" href="styles/revenue.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </head>
 
 <style>
+    :root {
+        --smp-primary: #0d6efd;
+        --smp-secondary: #6c757d;
+        --smp-success: #198754;
+        --smp-danger: #dc3545;
+        --smp-warning: #ffc107;
+        --smp-info: #0dcaf0;
+        --smp-light: #dddddd;
+        --smp-dark: #212529;
+        --smp-white: #fff;
+        --smp-transparent: transparent;
+    }
+
+    .fill-primary {
+        fill: var(--smp-primary);
+    }
+
+    .fill-danger {
+        fill: var(--smp-danger);
+    }
+
+    .fill-success {
+        fill: var(--smp-success);
+    }
+
+    .fill-warning {
+        fill: var(--smp-warning);
+    }
+
+    .fill-info {
+        fill: var(--smp-info);
+    }
+
+    .fill-secondary {
+        fill: var(--smp-secondary);
+    }
+
+    .fill-light {
+        fill: var(--smp-light);
+    }
+
+    .fill-dark {
+        fill: var(--smp-dark);
+    }
+
+    .fill-white {
+        fill: var(--smp-white);
+    }
+
+    .fill-transparent {
+        fill: var(--smp-transparent);
+    }
+
     html,
     body {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -33,39 +92,67 @@
         align-items: center;
         flex-direction: column;
     }
+
+    .line_and_bar_graph .bar:hover {
+        fill: var(--smp-warning);
+    }
+
+    .line_and_bar_graph .axis--x path {
+        display: none;
+    }
+
+    .line_and_bar_graph .line {
+        fill: none;
+        stroke: royalblue;
+        stroke-width: 3;
+    }
+
+    .line_and_bar_graph .dot {
+        fill: royalblue;
+        stroke: royalblue;
+    }
+
+    .overflow-hidden {
+        overflow: hidden;
+    }
+
+    .chart-header {
+        font-size: 3rem;
+        display: flex;
+        padding-top: 25px;
+        justify-content: center;
+        align-items: end;
+        margin-bottom: 0;
+        color: var(--smp-info)
+    }
+
+    .stacked_bar_graph .bar-text {
+        font-size: 0.9rem;
+    }
 </style>
 
 <body>
-
-    <!-- 01. -->
-    <!-- <svg></svg> -->
-
-    <!-- 02. -->
-    <!-- <ul></ul> -->
-
-    <!-- 03. -->
-    <!-- <div id="app">
-        <div id="chart">
-            <svg></svg>
+    <div class="container-fluid py-5">
+        <div class="row" style="height: 280px">
+            <div class="col-4 mb-4 d-flex h-100">
+                <div class="p-0 card shadow card-body h-100 w-100 overflow-hidden">
+                    <div id="revenue-chart"></div>
+                </div>
+            </div>
+            <div class="col-4 mb-4 d-flex h-100">
+                <div class="p-0 card shadow card-body h-100 w-100 overflow-hidden">
+                    <div id="registered-chart"></div>
+                </div>
+            </div>
+            <div class="col-4 mb-4 d-flex h-100">
+                <div class="p-0 card shadow card-body h-100 w-100 overflow-hidden">
+                    <div id="email-chart"></div>
+                </div>
+            </div>
         </div>
-        <div id="data">
-            <ul></ul>
-        </div>
-    </div> -->
-
-    <!-- Revenue -->
-    <div id="lineAndBarChart"></div>
-
-    <div id="stackedBarChart"></div>
-
-    <div id="progressChart"></div>
+    </div>
 
     <script src="App.js" type="module"></script>
-    <script>
-
-
-    </script>
-
 </body>
 
 </html>
