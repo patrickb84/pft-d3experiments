@@ -1,8 +1,13 @@
+const GAMES_PAYLOAD = {
+  
+}
+
 const GAMES = [
   {
     id: 1,
     attended: 80,
     registered: 100,
+    // values: [{ "key": "attended", "value": 80 }, { "key": "registered", "value": 100 }],
     month: new Date(2021, 0)
   },
   {

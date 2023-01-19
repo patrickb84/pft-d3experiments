@@ -1,15 +1,3 @@
-// ! COMMON
-const margin = { top: -5, right: 25, bottom: 100, left: 115 };
-const getElDimensions = el => ({
-  width: () => el.offsetWidth,
-  height: () => el.offsetHeight,
-  innerWidth: () => el.offsetWidth - margin.left - margin.right,
-  innerHeight: () => el.offsetHeight - margin.top - margin.bottom,
-  outerWidth: () => el.offsetWidth + margin.left + margin.right,
-  outerHeight: () => el.offsetHeight + margin.top + margin.bottom
-})
-const padding_between_bars = 0.5
-
 // ! MOCK DATA
 const EMAIL_DATA = {
   total: 5030,
@@ -18,27 +6,48 @@ const EMAIL_DATA = {
   undelivered: 123
 };
 
-// ! Chart function
-const progressChart = (selector = "#email-chart", data = EMAIL_DATA, yDomain = ['Opened', 'Clicked', 'Undelivered']) => {
-  // # get element
-  const el = document.querySelector(selector)
-  el.classList.add('d3', 'stacked_bar_graph')
-  const dimensions = getElDimensions(el)
+// ! COMMON
+const margin = { top: -5, right: 25, bottom: 140, left: 110 };
 
-  // # append "Total" text
+const getElDimensions = el => ({
+  width: () => el.offsetWidth,
+  height: () => el.offsetHeight,
+  innerWidth: () => el.offsetWidth - margin.left - margin.right,
+  innerHeight: () => el.offsetHeight - margin.top - margin.bottom,
+  outerWidth: () => el.offsetWidth + margin.left + margin.right,
+  outerHeight: () => el.offsetHeight + margin.top + margin.bottom
+});
+
+const padding_between_bars = 0.6;
+
+// ! Chart function
+
+const progressChart = ({
+  selector = '#email-chart',
+  data = EMAIL_DATA,
+  yDomain = ['Opened', 'Clicked', 'Undelivered']
+}) => {
+  // # get element
+  const el = document.querySelector(selector);
+  
+  el.classList.add('d3', 'stacked_bar_graph');
+  
+  const dimensions = getElDimensions(el);
+
   const header = d3
     .select(selector)
     .append('h3')
-    .attr('class', 'chart-header')
+    .attr('class', 'headline')
     .text(`${data.total / 1000}k`);
-  const elHeader = document.querySelector(`${selector} .chart-header`);
+
+  const elHeader = document.querySelector(`${selector} .headline`);
 
   // # append svg
   const svg = d3
     .select(el)
     .append('svg')
     .attr('width', dimensions.outerWidth())
-    .attr('height', dimensions.outerHeight() - elHeader.offsetHeight - 40)
+    .attr('height', dimensions.outerHeight() - elHeader.offsetHeight - 140)
     .append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
@@ -74,7 +83,7 @@ const progressChart = (selector = "#email-chart", data = EMAIL_DATA, yDomain = [
         default:
           num = data.undelivered;
       }
-      return `<tspan style="font-weight:bold" x="-90" dy="-2"> ${num} </tspan><tspan x="-90" dy="1.2em">${d}</tspan>`;
+      return `<tspan style="font-family:'Bebas Neue'; font-weight:bold;" x="-90" dy="-2"> ${num} </tspan><tspan x="-90" dy="1.2em">${d}</tspan>`;
     })
     .attr('text-anchor', 'start');
 
@@ -103,14 +112,14 @@ const progressChart = (selector = "#email-chart", data = EMAIL_DATA, yDomain = [
           return x(data.undelivered);
       }
     })
-    .attr('fill', d => {
+    .attr('class', d => {
       switch (d) {
         case 'Opened':
-          return 'purple';
+          return 'bar fill-green-bright';
         case 'Clicked':
-          return 'blue';
+          return 'bar fill-purple';
         default:
-          return 'goldenrod';
+          return 'bar fill-orange-alt';
       }
     });
 };

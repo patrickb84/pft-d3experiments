@@ -1,0 +1,34 @@
+.__COLUMN__ {
+  display: flex;
+  height: 100%;
+  margin-bottom: 4rem;
+}
+
+.chart-card {
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.chart-card .chart-card__header {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: -1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chart-card__title {
+  display: flex;
+  align-items: center;
+}
+
+.chart-card__title h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 0;
+}

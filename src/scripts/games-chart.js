@@ -2,7 +2,7 @@ import GAMES from '../data/data-games.js';
 
 // ! COMMON
 const formatDateTimeToShortMonth = dateTime => dateTime.toLocaleString('default', { month: 'short' })
-const margin = { top: 30, right: 30, bottom: 50, left: 50 };
+const margin = { top: 30, right: 30, bottom: 140, left: 50 };
 const getElDimensions = el => ({
   width: () => el.offsetWidth,
   height: () => el.offsetHeight,
@@ -60,7 +60,7 @@ function drawD3StackedBar() {
     svg.append('g').call(d3.axisLeft(y).ticks(12).tickSizeOuter(0));
 
     // # color palette
-    const color = d3.scaleOrdinal().domain(stackedGroups).range(['fill-success', 'fill-light']);
+    const color = d3.scaleOrdinal().domain(stackedGroups).range(['fill-purple', 'fill-light']);
 
     // # Stack the data
     const stackedData = d3.stack().keys(stackedGroups)(data);
