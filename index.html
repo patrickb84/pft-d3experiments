@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D3.js</title>
+  <title>SMP D3 TEST</title>
+  <link rel="stylesheet" href="./src/Main.css">
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
@@ -14,50 +15,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./src/Main.css">
 </head>
 
 <style>
-  :root {
-    --smp-blue: #59A6DB;
-    --smp-purple: #7666A9;
-    --smp-purple-bright: #A460EF;
-    --smp-green: #43972A;
-    --smp-green-bright: #73CB7B;
-    --smp-orange-alt: #D06732;
-    --smp-danger: #dc3545;
-    --smp-warning: #ffc107;
-    --smp-info: #0dcaf0;
-    --smp-light: #E2E2E2;
-    --smp-dark: #494949;
-    --smp-white: #fff;
-    --smp-transparent: transparent;
-  }
-
-  .fill-green {
-    fill: var(--smp-green);
-  }
-
-  .fill-purple-bright {
-    fill: var(--smp-purple-bright);
-  }
-
-  .fill-green-bright {
-    fill: var(--smp-green-bright);
-  }
-
-  .fill-orange-alt {
-    fill: var(--smp-orange-alt);
-  }
-
+/* 
   .btn-primary {
     background-color: var(--smp-blue);
     border-color: var(--smp-blue);
@@ -116,11 +81,6 @@
     fill: var(--smp-transparent);
   }
 
-  html,
-  body {
-    font-family: 'Bebas Neue', sans-serif;
-  }
-
   .chart-header {
     font-size: 4rem;
     display: flex;
@@ -134,26 +94,23 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
+  } */
 
-  .line_and_bar_graph .bar:hover {
+  /* .line_and_bar_graph .bar:hover {
     fill: var(--smp-warning);
-  }
+  } */
 
-  .line_and_bar_graph .axis--x path {
+  /* .line_and_bar_graph .axis--x path {
     display: none;
-  }
+  } */
 
-  .line_and_bar_graph .line {
+  /* .line_and_bar_graph .line {
     fill: none;
     stroke: var(--smp-purple);
     stroke-width: 2;
-  }
-
-  .line_and_bar_graph .dot {
-    fill: royalblue;
-    stroke: transparent;
-  }
+  } */
+  /* ent;
+  } */
 
   .overflow-hidden {
     overflow: hidden;
@@ -192,27 +149,35 @@
 
 <body>
   <div class="container-fluid py-5">
-    <div class="row" style="height: 360px">
-      <div class="col-4 mb-4 d-flex h-100">
-        <div class="p-0 card shadow card-body h-100 w-100 overflow-hidden">
-          <div id="revenue-chart">
-            <div class="chart-title d-flex align-items-center justify-content-between">
-              <div class="d-flex align-items-center">
-                <h3>REVENUE VS BUDGET OVER TIME</h3>
-                <button class="btn btn-primary btn-sm ms-2">X</button>
-              </div>
-              <div class="d-flex">
-                <button class="btn btn-primary btn-sm me-1">X</button>
-                <button class="btn btn-primary btn-sm">X</button>
-                <button class="btn btn-secondary btn-sm">X</button>
-              </div>
+    <div class="row" style="height:340px;">
+
+
+      <div class="col-sm-6 col-12">
+
+        <div class="chart-card">
+
+          <div id="___revenue_over_time___">
+
+            <div class="chart-card__header">
+              <h3 class="chart-card__title">REVENUE VS BUDGET OVER TIME</h3>
+              <button class="chart-card__header__button spacing">X</button>
+
+              <button class="chart-card__header__button spacing ms-auto">X</button>
+              <button class="chart-card__header__button">X</button>
+              <button class="chart-card__header__button --secondary">X</button>
+
+              <!-- svg goes here -->
+
+
             </div>
           </div>
         </div>
       </div>
+
+      <!--       
       <div class="col-4 mb-4 d-flex h-100">
         <div class="p-0 card shadow card-body h-100 w-100 overflow-hidden">
-          <div id="registered-chart">
+          <div id="__games_registered_vs_attended__">
             <div class="chart-title d-flex align-items-center justify-content-between">
               <div class="d-flex align-items-center">
                 <h3>GAME ATTENDANCE OVER TIME</h3>
@@ -226,8 +191,11 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-4 mb-4 d-flex h-100">
+      </div> 
+    -->
+
+      <!-- 
+        <div class="col-4 mb-4 d-flex h-100">
         <div class="p-0 card shadow card-body h-100 w-100 overflow-hidden">
           <div id="email-chart">
             <div class="chart-title d-flex align-items-center justify-content-between">
@@ -243,30 +211,15 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- <div class="__COLUMN__ col-4">
-        <div class="chart-card card shadow card-body">
-          <div id="revenueVsBudget">
-            <div class="chart-card__header">
-              <div class="chart-card__title">
-                <h3>REVENUE VS BUDGET OVER TIME</h3>
-                <button class="btn btn-primary btn-sm ms-2">X</button>
-              </div>
-              <div class="d-flex">
-                <button class="btn btn-primary btn-sm me-1">X</button>
-                <button class="btn btn-primary btn-sm">X</button>
-                <button class="btn btn-secondary btn-sm">X</button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div> -->
     </div>
   </div>
 
+  <div class="container-fluid py-5">
+    <div id="TeamRegistrationsGraph"></div>
+  </div>
+
   <script src="./src/App.js" type="module"></script>
-  <!-- <script src="./src/script.js" type="module"></script> -->
 </body>
 
 </html>

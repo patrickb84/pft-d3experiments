@@ -1,209 +1,209 @@
 const DATA_REVENUE = [
   {
-    lineValue: 43023,
-    barValue: 29209,
+    lin: 43023,
+    bar: 29209,
     date: new Date(2021, 0)
   },
   {
-    lineValue: 23391,
-    barValue: 35598,
+    lin: 23391,
+    bar: 35598,
     date: new Date(2021, 1)
   },
   {
-    lineValue: 20021,
-    barValue: 20021,
+    lin: 20021,
+    bar: 20021,
     date: new Date(2021, 2)
   },
   {
-    lineValue: 26348,
-    barValue: 44063,
+    lin: 26348,
+    bar: 44063,
     date: new Date(2021, 3)
   },
   {
-    lineValue: 30497,
-    barValue: 30497,
+    lin: 30497,
+    bar: 30497,
     date: new Date(2021, 4)
   },
   {
-    lineValue: 10975,
-    barValue: 15764,
+    lin: 10975,
+    bar: 15764,
     date: new Date(2021, 5)
   },
   {
-    lineValue: 13407,
-    barValue: 14519,
+    lin: 13407,
+    bar: 14519,
     date: new Date(2021, 6)
   },
   {
-    lineValue: 34320,
-    barValue: 32367,
+    lin: 34320,
+    bar: 32367,
     date: new Date(2021, 7)
   },
   {
-    lineValue: 17624,
-    barValue: 31351,
+    lin: 17624,
+    bar: 31351,
     date: new Date(2021, 8)
   },
   {
-    lineValue: 42708,
-    barValue: 42708,
+    lin: 42708,
+    bar: 42708,
     date: new Date(2021, 9),
     isProjection: true
   },
   {
-    lineValue: 40808,
-    barValue: 40808,
+    lin: 40808,
+    bar: 40808,
     date: new Date(2021, 10),
     isProjection: true
   },
   {
-    lineValue: 33390,
-    barValue: 33390,
+    lin: 33390,
+    bar: 33390,
     date: new Date(2021, 11),
     isProjection: true
   },
   {
     id: 13,
-    lineValue: 24884,
-    barValue: 16914,
+    lin: 24884,
+    bar: 16914,
     date: new Date(2022, 0)
   },
   {
     id: 14,
-    lineValue: 15732,
-    barValue: 15687,
+    lin: 15732,
+    bar: 15687,
     date: new Date(2022, 1)
   },
   {
     id: 15,
-    lineValue: 20037,
-    barValue: 35765,
+    lin: 20037,
+    bar: 35765,
     date: new Date(2022, 2)
   },
   {
     id: 16,
-    lineValue: 10975,
-    barValue: 35689,
+    lin: 10975,
+    bar: 35689,
     date: new Date(2022, 3)
   },
   {
     id: 17,
-    lineValue: 35867,
-    barValue: 28415,
+    lin: 35867,
+    bar: 28415,
     date: new Date(2022, 4)
   },
   {
     id: 18,
-    lineValue: 16086,
-    barValue: 16169,
+    lin: 16086,
+    bar: 16169,
     date: new Date(2022, 5)
   },
   {
     id: 19,
-    lineValue: 28654,
-    barValue: 31361,
+    lin: 28654,
+    bar: 31361,
     date: new Date(2022, 6)
   },
   {
     id: 20,
-    lineValue: 13472,
-    barValue: 18821,
+    lin: 13472,
+    bar: 18821,
     date: new Date(2022, 7)
   },
   {
     id: 21,
-    lineValue: 11034,
-    barValue: 17883,
+    lin: 11034,
+    bar: 17883,
     date: new Date(2022, 8)
   },
   {
     id: 22,
-    lineValue: 21803,
-    barValue: 10625,
+    lin: 21803,
+    bar: 10625,
     date: new Date(2022, 9)
   },
   {
     id: 23,
-    lineValue: 37969,
-    barValue: 27938,
+    lin: 37969,
+    bar: 27938,
     date: new Date(2022, 10)
   },
   {
     id: 24,
-    lineValue: 26995,
-    barValue: 29563,
+    lin: 26995,
+    bar: 29563,
     date: new Date(2022, 11)
   },
   {
     id: 25,
-    lineValue: 43975,
-    barValue: 40353,
+    lin: 43975,
+    bar: 40353,
     date: new Date(2023, 0)
   },
   {
     id: 26,
-    lineValue: 16694,
-    barValue: 43478,
+    lin: 16694,
+    bar: 43478,
     date: new Date(2023, 1)
   },
   {
     id: 27,
-    lineValue: 32601,
-    barValue: 18481,
+    lin: 32601,
+    bar: 18481,
     date: new Date(2023, 2)
   },
   {
     id: 28,
-    lineValue: 31764,
-    barValue: 20864,
+    lin: 31764,
+    bar: 20864,
     date: new Date(2023, 3)
   },
   {
     id: 29,
-    lineValue: 11841,
-    barValue: 17895,
+    lin: 11841,
+    bar: 17895,
     date: new Date(2023, 4)
   },
   {
     id: 30,
-    lineValue: 13739,
-    barValue: 22260,
+    lin: 13739,
+    bar: 22260,
     date: new Date(2023, 5)
   },
   {
     id: 31,
-    lineValue: 26949,
-    barValue: 41057,
+    lin: 26949,
+    bar: 41057,
     date: new Date(2023, 6)
   },
   {
     id: 32,
-    lineValue: 13287,
-    barValue: 43134,
+    lin: 13287,
+    bar: 43134,
     date: new Date(2023, 7)
   },
   {
     id: 33,
-    lineValue: 37505,
-    barValue: 44460,
+    lin: 37505,
+    bar: 44460,
     date: new Date(2023, 8)
   },
   {
     id: 34,
-    lineValue: 42710,
-    barValue: 15227,
+    lin: 42710,
+    bar: 15227,
     date: new Date(2023, 9)
   },
   {
     id: 35,
-    lineValue: 30880,
-    barValue: 34443,
+    lin: 30880,
+    bar: 34443,
     date: new Date(2023, 10)
   },
   {
     id: 36,
-    lineValue: 38849,
-    barValue: 17222,
+    lin: 38849,
+    bar: 17222,
     date: new Date(2023, 11)
   }
 ];

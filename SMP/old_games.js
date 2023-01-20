@@ -98,8 +98,6 @@ function drawD3StackedBar() {
 
     window.addEventListener('resize', queueRedraw);
   }
-};
-
-const draw = () => drawD3StackedBar()("#registered-chart", __DATA__, __DATA__.map(d => d.shortMonth))
+}
 
 export default draw;
